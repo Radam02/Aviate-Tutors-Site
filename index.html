@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personalized high school math and SAT/ACT math tutoring with Aviate Tutors. Build confidence, strengthen fundamentals, and prepare with a plan.">
+  <meta name="theme-color" content="#10243a">
+  <title>Aviate Tutors | High School Math & SAT/ACT Prep</title>
+  <style>
+    :root {
+      --navy: #10243a;
+      --navy-2: #183752;
+      --blue: #2d7db5;
+      --sky: #dff2fb;
+      --pale: #f4f8fb;
+      --ink: #172838;
+      --muted: #5e6d7a;
+      --line: #dce5ec;
+      --white: #fff;
+      --gold: #f4c66a;
+      --radius: 22px;
+      --shadow: 0 18px 55px rgba(16,36,58,.10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink); line-height: 1.6; background: var(--white);
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar { background: var(--navy); color: #eaf4fb; font-size: .88rem; }
+    .topbar .wrap { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; flex-wrap: wrap; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; }
+    .brand { display: flex; gap: 11px; align-items: center; text-decoration: none; color: var(--navy); font-weight: 850; letter-spacing: -.04em; font-size: 1.22rem; }
+    .logo { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px; color: white; background: var(--blue); }
+    .logo svg { width: 25px; height: 25px; }
+    .navlinks { display: flex; gap: 26px; align-items: center; font-size: .95rem; font-weight: 650; }
+    .navlinks a { text-decoration: none; color: #3f5262; }
+    .navlinks a:hover { color: var(--blue); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 0; border-radius: 999px; padding: 13px 20px; background: var(--blue); color: white; text-decoration: none; font-weight: 750; cursor: pointer; box-shadow: 0 8px 20px rgba(45,125,181,.18); transition: transform .15s, background .15s; }
+    .btn:hover { background: #236995; transform: translateY(-1px); }
+    .btn.secondary { color: var(--navy); background: white; border: 1px solid var(--line); box-shadow: none; }
+    .btn.secondary:hover { background: var(--pale); }
+    .hero { position: relative; overflow: hidden; background: linear-gradient(120deg, #f4f9fc 0%, #e8f5fc 65%, #d9eef9 100%); padding: 70px 0 76px; }
+    .hero:before { content: ""; position: absolute; width: 420px; height: 420px; border: 1px solid rgba(45,125,181,.17); border-radius: 50%; right: -95px; top: -150px; box-shadow: 0 0 0 42px rgba(45,125,181,.035), 0 0 0 84px rgba(45,125,181,.025); }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 55px; align-items: center; position: relative; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: #236995; font-size: .82rem; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+    h1 { color: var(--navy); font-size: clamp(2.6rem, 5vw, 4.45rem); line-height: 1.04; letter-spacing: -.055em; margin: 17px 0 22px; max-width: 680px; }
+    h1 span { color: var(--blue); }
+    .hero p { max-width: 580px; color: #4d6273; font-size: 1.12rem; margin: 0 0 27px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .micro { display: flex; align-items: center; gap: 9px; color: #5d6e7c; font-size: .9rem; margin-top: 23px; }
+    .check { color: #16805d; font-weight: 900; }
+    .flight-card { position: relative; min-height: 355px; border-radius: 30px; padding: 30px; background: var(--navy); color: white; box-shadow: 0 25px 65px rgba(16,36,58,.22); overflow: hidden; }
+    .flight-card:after { content: ""; position: absolute; width: 290px; height: 290px; border: 1px solid rgba(255,255,255,.14); border-radius: 50%; right: -75px; top: -65px; box-shadow: 0 0 0 28px rgba(255,255,255,.035), 0 0 0 57px rgba(255,255,255,.025); }
+    .card-label { position: relative; z-index: 1; color: #b8dff5; text-transform: uppercase; letter-spacing: .12em; font-size: .75rem; font-weight: 800; }
+    .flight-card h2 { position: relative; z-index: 1; color: white; font-size: 1.85rem; line-height: 1.2; letter-spacing: -.035em; margin: 12px 0; max-width: 300px; }
+    .flight-card p { position: relative; z-index: 1; color: #d0e0ec; font-size: .98rem; margin: 0; }
+    .route { position: absolute; left: 30px; right: 30px; bottom: 28px; z-index: 1; height: 90px; border-bottom: 1px dashed rgba(255,255,255,.38); }
+    .route:before { content: ""; position: absolute; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; left: 7%; bottom: 0; }
+    .route:after { content: "✈"; position: absolute; right: 8%; bottom: 13px; font-size: 2.3rem; color: #8ed0f2; transform: rotate(-8deg); }
+    .route span { position: absolute; left: 7%; bottom: -24px; font-size: .75rem; color: #b8d0df; }
+    section { padding: 78px 0; }
+    .section-head { max-width: 670px; margin-bottom: 34px; }
+    .section-head h2 { color: var(--navy); font-size: clamp(2rem, 3vw, 2.8rem); letter-spacing: -.045em; line-height: 1.12; margin: 10px 0 13px; }
+    .section-head p { color: var(--muted); margin: 0; font-size: 1.04rem; }
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .service { padding: 27px; border: 1px solid var(--line); border-radius: var(--radius); background: white; }
+    .service-icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 15px; background: var(--sky); color: var(--blue); font-weight: 900; font-size: 1.25rem; margin-bottom: 20px; }
+    .service h3 { color: var(--navy); font-size: 1.2rem; letter-spacing: -.02em; margin: 0 0 9px; }
+    .service p { color: var(--muted); margin: 0; font-size: .96rem; }
+    .service .tag { display: inline-block; margin-top: 18px; font-size: .8rem; font-weight: 800; color: #236995; background: #eef8fd; padding: 6px 10px; border-radius: 999px; }
+    .approach { background: var(--pale); }
+    .approach-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; align-items: start; }
+    .approach-note { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; box-shadow: 0 8px 30px rgba(16,36,58,.04); }
+    .approach-note strong { color: var(--navy); display: block; font-size: 1.15rem; margin-bottom: 8px; }
+    .approach-note p { color: var(--muted); margin: 0; }
+    .steps { display: grid; gap: 22px; }
+    .step { display: grid; grid-template-columns: 44px 1fr; gap: 16px; }
+    .num { width: 44px; height: 44px; border-radius: 14px; background: var(--navy); color: white; display: grid; place-items: center; font-weight: 850; }
+    .step h3 { color: var(--navy); margin: 0 0 5px; font-size: 1.1rem; }
+    .step p { color: var(--muted); margin: 0; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .about-panel { background: linear-gradient(140deg, var(--navy), #204e70); border-radius: 28px; color: white; padding: 34px; min-height: 260px; display: flex; flex-direction: column; justify-content: space-between; }
+    .about-panel .big { font-size: 3rem; font-weight: 850; letter-spacing: -.06em; line-height: 1; color: #9cdbf8; }
+    .about-panel p { margin: 18px 0 0; color: #d5e7f1; }
+    .about-copy h2 { color: var(--navy); font-size: 2.4rem; line-height: 1.12; letter-spacing: -.045em; margin: 0 0 15px; }
+    .about-copy p { color: var(--muted); }
+    .about-copy ul { padding-left: 20px; color: var(--muted); }
+    .about-copy li { padding: 4px 0; }
+    .faq { background: var(--pale); }
+    .faq-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 50px; }
+    .faq-list details { padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .faq-list summary { cursor: pointer; font-weight: 800; color: var(--navy); }
+    .faq-list p { color: var(--muted); margin: 10px 0 0; }
+    .contact { background: var(--navy); color: white; }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; align-items: start; }
+    .contact h2 { color: white; font-size: clamp(2rem, 3vw, 2.8rem); letter-spacing: -.045em; line-height: 1.12; margin: 10px 0 16px; }
+    .contact p { color: #c7d8e5; }
+    .contact .eyebrow { color: #9cdbf8; }
+    .contact-box { background: white; color: var(--ink); border-radius: 24px; padding: 28px; }
+    .contact-box h3 { color: var(--navy); margin: 0 0 8px; font-size: 1.25rem; }
+    .contact-box p { color: var(--muted); font-size: .94rem; margin: 0 0 18px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+    label { display: block; font-size: .82rem; font-weight: 800; color: #344b5d; margin-bottom: 6px; }
+    input, select, textarea { width: 100%; font: inherit; border: 1px solid #cfdbe4; border-radius: 10px; padding: 11px 12px; color: var(--ink); background: white; }
+    textarea { resize: vertical; min-height: 95px; }
+    .field { margin-bottom: 13px; }
+    .full { grid-column: 1 / -1; }
+    .form-note { color: #71808c !important; font-size: .78rem !important; margin: 12px 0 0 !important; }
+    footer { background: #0b1a2a; color: #9eb2c1; padding: 23px 0; font-size: .85rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    .footer-brand { color: white; font-weight: 850; }
+
+    .booking-card { margin-top: 26px; padding: 22px; border: 1px solid rgba(255,255,255,.2); border-radius: 18px; background: rgba(255,255,255,.06); }
+    .booking-card h3 { color: white; margin: 0 0 6px; font-size: 1.15rem; }
+    .booking-card p { margin: 0 0 14px; font-size: .94rem; }
+    .booking-card .form-note { margin: 12px 0 0 !important; color: #a9bfce !important; }
+    .mini-faq { margin-top: 22px; border-top: 1px solid var(--line); padding-top: 16px; }
+    .mini-faq h4 { margin: 0 0 4px; color: var(--navy); }
+    .mini-faq details { padding: 10px 0; border-bottom: 1px solid var(--line); }
+    .mini-faq summary { cursor: pointer; color: var(--navy); font-size: .9rem; font-weight: 800; }
+    .mini-faq details p { margin: 7px 0 0; font-size: .88rem; }
+
+    @media (max-width: 820px) {
+      .navlinks { display: none; }
+      .hero-grid, .approach-grid, .about-grid, .faq-grid, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hero { padding: 52px 0 58px; }
+      .flight-card { min-height: 315px; }
+      .services { grid-template-columns: 1fr; }
+      section { padding: 58px 0; }
+      .about-panel { min-height: 210px; }
+    }
+    @media (max-width: 500px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      .topbar .wrap { font-size: .78rem; }
+      .nav { padding: 14px 0; }
+      .nav .btn { padding: 10px 13px; font-size: .85rem; }
+      .hero-actions { align-items: stretch; flex-direction: column; }
+      .hero-actions .btn { width: 100%; }
+      .form-grid { grid-template-columns: 1fr; }
+      .full { grid-column: auto; }
+      .contact-box { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <span>High school math · SAT/ACT math prep</span>
+      <span>Online tutoring · Flexible scheduling</span>
+    </div>
+  </div>
+
+  <header class="wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Aviate Tutors home">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 14.5 21 4l-6.5 17-2.4-6.1L3 14.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m12.1 14.9 4.3-4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <span>Aviate Tutors</span>
+      </a>
+      <div class="navlinks">
+        <a href="#services">Tutoring</a>
+        <a href="#approach">Our approach</a>
+        <a href="#approach">About</a>
+      </div>
+      <a class="btn" href="#contact">Get started <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> A clearer path to confidence</div>
+          <h1>Math can click.<br><span>Let's get you there.</span></h1>
+          <p>Personalized high school math and SAT/ACT math tutoring that helps students understand the material, practice with purpose, and feel more confident walking into class or test day.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Ask about tutoring <span aria-hidden="true">→</span></a>
+            <a class="btn secondary" href="#services">Explore services</a>
+          </div>
+          <div class="micro"><span class="check">✓</span> Clear explanations · Focused practice · A plan built around the student</div>
+        </div>
+        <div class="flight-card">
+          <div class="card-label">Aviate Tutors</div>
+          <h2>Build the skills.<br>Trust your training.</h2>
+          <p>Good preparation isn't about guessing. It's about understanding the route, practicing the hard parts, and knowing what to do next.</p>
+          <div class="route"><span>START HERE</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow"><span class="dot"></span> Tutoring services</div>
+          <h2>The right support for what's in front of you.</h2>
+          <p>Choose ongoing help with schoolwork or a more structured plan for an upcoming standardized test.</p>
+        </div>
+        <div class="services">
+          <article class="service">
+            <div class="service-icon">x²</div>
+            <h3>High School Math</h3>
+            <p>One-on-one help with algebra, geometry, Algebra II, precalculus, homework, and test preparation. Sessions focus on understanding the steps, not just memorizing answers.</p>
+            <span class="tag">Ongoing weekly support</span>
+          </article>
+          <article class="service">
+            <div class="service-icon">SAT</div>
+            <h3>SAT Math Prep</h3>
+            <p>Targeted practice for the math section, including a review of strengths and gaps, question strategies, pacing, and practice between sessions.</p>
+            <span class="tag">Structured test prep</span>
+          </article>
+          <article class="service">
+            <div class="service-icon">ACT</div>
+            <h3>ACT Math Prep</h3>
+            <p>Build fluency across tested math topics, practice under time pressure, and learn how to approach unfamiliar questions methodically.</p>
+            <span class="tag">Skills + timing</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach" id="approach">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow"><span class="dot"></span> A practical approach</div>
+          <h2>Clear explanations. Focused practice. Steady progress.</h2>
+          <p>Every student starts somewhere different. Tutoring should make the next step clear, build confidence, and help students solve problems independently.</p>
+        </div>
+        <div class="services">
+          <article class="service">
+            <div class="service-icon">1</div>
+            <h3>Understand the starting point</h3>
+            <p>Talk through goals, review current work, and identify the concepts or question types that need attention.</p>
+          </article>
+          <article class="service">
+            <div class="service-icon">2</div>
+            <h3>Practice with purpose</h3>
+            <p>Work through clear explanations and guided problems, then build toward solving them independently.</p>
+          </article>
+          <article class="service">
+            <div class="service-icon">3</div>
+            <h3>Keep track of progress</h3>
+            <p>Review what is improving and adjust the plan for classwork or the upcoming SAT/ACT.</p>
+          </article>
+        </div>
+      </div>
+      <div class="wrap about-grid" style="margin-top: 56px;">
+        <div class="about-panel">
+          <div class="big">Aviate.</div>
+          <p>Preparation and good decision-making help you stay on course. Learning works the same way: build the fundamentals, practice deliberately, and make progress one step at a time.</p>
+        </div>
+        <div class="about-copy">
+          <div class="eyebrow"><span class="dot"></span> About Aviate Tutors</div>
+          <h2>Thoughtful tutoring, grounded in real-world problem-solving.</h2>
+          <p>Aviate Tutors brings a structured, one-on-one approach to high school math and SAT/ACT preparation. Our focus is helping students understand the “why” behind the steps, build useful habits, and become more independent problem-solvers.</p>
+          <p>Tutoring is led by an aerospace engineering graduate from Georgia Tech, private pilot, and practicing civil engineer, with additional experience in test engineering and the software industry. Outside of work, interests include running, cooking, and playing guitar in a band.</p>
+          <p>That mix of technical work and creative pursuits shapes an approach that values preparation, patience, curiosity, and clear communication.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Take the first step</div>
+          <h2>Let's figure out what would help.</h2>
+          <p>Tell me what the student is working on and what they'd like to improve. We'll discuss whether tutoring is a good fit and find a time to connect.</p>
+          <p><strong>Serving:</strong> Online students. Add your local service area here if applicable.</p>
+          <div class="booking-card">
+            <h3>Prefer to book a time?</h3>
+            <p>Use the scheduling page to find a convenient time for an introductory conversation.</p>
+            <a class="btn secondary" href="https://cal.com/YOUR_CAL_USERNAME/intro" target="_blank" rel="noopener">View available times <span aria-hidden="true">↗</span></a>
+            <p class="form-note">Replace this placeholder with your real Cal.com booking link before publishing.</p>
+          </div>
+        </div>
+        <div class="contact-box">
+          <h3>Ask about tutoring</h3>
+          <p>Share a few details. This form opens a pre-filled email so you can review it before sending.</p>
+          <form id="inquiry-form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="parent">Parent / guardian name</label>
+                <input id="parent" name="parent" autocomplete="name" required placeholder="Your name">
+              </div>
+              <div class="field">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+              </div>
+              <div class="field">
+                <label for="grade">Student's grade</label>
+                <select id="grade" name="grade" required>
+                  <option value="">Select grade</option>
+                  <option>8th grade</option><option>9th grade</option><option>10th grade</option><option>11th grade</option><option>12th grade</option><option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="service">What help is needed?</label>
+                <select id="service" name="service" required>
+                  <option value="">Choose a service</option>
+                  <option>High school math</option><option>SAT math</option><option>ACT math</option><option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="details">Goals, current class, and availability</label>
+                <textarea id="details" name="details" placeholder="What is the student working on? What days/times usually work?"></textarea>
+              </div>
+            </div>
+            <button class="btn" type="submit">Prepare inquiry email <span aria-hidden="true">→</span></button>
+            <p class="form-note">Before publishing: replace the email address in the website file with your real business email. Do not include sensitive student information in this form.</p>
+          </form>
+          <div class="mini-faq">
+            <h4>Quick questions</h4>
+            <details><summary>Online or in person?</summary><p>This draft assumes online tutoring. Add a local service area if you plan to offer in-person sessions.</p></details>
+            <details><summary>Which subjects?</summary><p>High school algebra, geometry, Algebra II, precalculus, and SAT/ACT math preparation.</p></details>
+            <details><summary>Are results guaranteed?</summary><p>No particular grade or test score can be guaranteed. Sessions focus on understanding, targeted practice, and feedback.</p></details>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="footer-brand">Aviate Tutors</span>
+      <span>High school math · SAT/ACT math</span>
+      <span>© <span id="year"></span> Aviate Tutors</span>
+    </div>
+  </footer>
+
+  <script>
+    // IMPORTANT: Replace this with the email address you want inquiries sent to.
+    const BUSINESS_EMAIL = "YOUR_EMAIL@example.com";
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("inquiry-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (BUSINESS_EMAIL === "YOUR_EMAIL@example.com") {
+        alert("Before using the form, open index.html and replace YOUR_EMAIL@example.com with your business email address.");
+        return;
+      }
+      const data = new FormData(event.currentTarget);
+      const subject = encodeURIComponent("Aviate Tutors inquiry: " + data.get("service"));
+      const body = encodeURIComponent(
+        "Parent/guardian: " + data.get("parent") + "\n" +
+        "Reply email: " + data.get("email") + "\n" +
+        "Student grade: " + data.get("grade") + "\n" +
+        "Service: " + data.get("service") + "\n\n" +
+        "Goals / current class / availability:\n" + (data.get("details") || "Not provided")
+      );
+      window.location.href = "mailto:" + BUSINESS_EMAIL + "?subject=" + subject + "&body=" + body;
+    });
+  </script>
+</body>
+</html>
